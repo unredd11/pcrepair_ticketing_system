@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h2>PC Vision</h2>
+
+    <form method="post" class="auth-form">
+      {% csrf_token %}
+      
+      <p>
+        <label for="username">Username or Email</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </p>
+
+      <p>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required>
+      </p>
+      
+      <button type="submit" class="btn-auth">Sign In</button>
+    </form>
+
+    <div class="auth-links">
+      <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+    </div>  
+  </div>
+</div>
+{% endblock %}

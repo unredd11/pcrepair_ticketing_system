@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="auth-wrapper">
+  <div class="auth-card">   
+    <h2>Create Account</h2>
+
+    <form method="post" class="auth-form">
+      {% csrf_token %}
+      
+      <div style="display: flex; gap: 10px;">
+        <p style="flex: 1;">
+          <label>First Name</label>
+          <input type="text" name="first_name" placeholder="kim" required>
+        </p>
+        <p style="flex: 1;">
+          <label>Last Name</label>
+          <input type="text" name="last_name" placeholder="Escobido" required>
+        </p>
+      </div>
+
+       <p>
+        <label>Last Name</label>
+        <input type="text" name="last_name" placeholder="Doe" required>
+      </p>
+
+      <p>
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="edd@example.com" required>
+      </p>
+
+      <p>
+        <label>Contact Number</label>
+        <input type="text" name="contact_number" placeholder="0912 345 6789" required>
+      </p>
+
+      <p>
+        <label>Complete Address</label>
+        <textarea name="address" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;" placeholder="Street, Barangay, City"></textarea>
+      </p>
+
+      <p>
+        <label>Create Password</label>
+        <input type="password" name="password" placeholder="password" required>
+      </p>
+      
+      <button type="submit" class="btn-auth">Create Account</button>
+    </form>
+
+    <div class="auth-links">
+      <p>Already have an account? <a href="{% url 'login' %}">Sign In here</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
