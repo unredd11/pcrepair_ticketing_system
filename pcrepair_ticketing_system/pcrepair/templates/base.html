@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Vision</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-content">
+    <div class="logo">PC Vision</div>
+    <ul class="nav-links">
+      <li><a href="{% url 'main' %}">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'ticket_list' %}" class="btn-outline">Dashboard</a></li>
+      {% else %}
+        <li><a href="/login" class="btn-outline">Login</a></li>
+        <li><a href="/register" class="btn-outline">Register</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+<footer class="main-footer">
+  <div class="container footer-content">
+    <p>PC Vision Computer Sales and Services.</p>
+  </div>
+</footer>
+
+</body>
+</html>
